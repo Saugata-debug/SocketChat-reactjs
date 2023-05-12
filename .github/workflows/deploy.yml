@@ -1,4 +1,4 @@
-name: 
+name: Dockcer Compose
 
 on:
   push:
@@ -24,6 +24,12 @@ jobs:
 
     - name: Start containers
       run: docker-compose -f "./chat/docker-compose.yml" up -d --build
+  
+    - name: Docker Containers
+      run: docker container ls -aq
+      
+    - name: Docker PS
+      run: docker ps
 
 #     - name: Stop containers
 #       if: always()
